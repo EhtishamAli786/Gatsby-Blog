@@ -7,37 +7,45 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
+import Switch from "@material-ui/core/Switch";
+import { useAppContext } from "../hooks";
 
-const useStyles = makeStyles((theme) => ({
-  title: {
-    flexGrow: 1,
-    display: "inline-block",
-    marginTop: 4,
-  },
-  rightMenu: {
-    float: "right",
-  },
-  siteTitleUI: {
-    cursor: "pointer",
-    color: "#f5f5f5",
-    fontWeight: "500",
-    fontSize: "1.3rem",
-    letterSpacing: "0.5px",
-    textDecoration: "none",
-  },
-  rightBtnStyles: {
-    fontSize: "1.1rem",
-    fontWeight: "500",
-    color: "#fafafa",
-  },
-}));
+const useStyles = makeStyles(({ palette }) => {
+  return {
+    title: {
+      flexGrow: 1,
+      display: "inline-block",
+      marginTop: 4,
+    },
+    rightMenu: {
+      float: "right",
+    },
+    siteTitleUI: {
+      cursor: "pointer",
+      color: "#f5f5f5",
+      fontWeight: "500",
+      fontSize: "1.3rem",
+      letterSpacing: "0.5px",
+      textDecoration: "none",
+    },
+    rightBtnStyles: {
+      fontSize: "1.1rem",
+      fontWeight: "500",
+      color: "#fafafa",
+    },
+  };
+});
 
 export const Header = ({ siteTitle }) => {
+  const { darkMode, setDarkMode } = useAppContext();
+  console.log("Header -> darkMode", darkMode);
   const classes = useStyles();
-
+  const handleChange = (event) => {
+    setDarkMode(!darkMode);
+  };
   return (
     <AppBar position="static">
-      <Toolbar style={{ backgroundColor: "rebeccapurple" }}>
+      <Toolbar>
         <Grid container direction="row">
           <Hidden smDown>
             <Grid item sm={1} />
@@ -70,6 +78,12 @@ export const Header = ({ siteTitle }) => {
                   About
                 </Button>
               </Hidden>
+              <Switch
+                checked={darkMode}
+                onChange={handleChange}
+                name="checkedA"
+                inputProps={{ "aria-label": "primary checkbox" }}
+              />
             </div>
           </Grid>
           <Hidden smDown>
