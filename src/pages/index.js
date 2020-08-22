@@ -1,16 +1,22 @@
 import React from "react";
 
-import { SEO, MainLayout } from "../components";
+import { MainLayout } from "../components";
+import Grid from "@material-ui/core/Grid";
 
-const IndexPage = () => (
-  <MainLayout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ height: 800, backgroundColor: "blue" }}>asd</div>
-    <p id="about">About Me</p>
-  </MainLayout>
-);
+const IndexPage = () => {
+  const tags = null;
+  return (
+    <MainLayout pageTitle={"Ehtisham Ali"} tags={tags}>
+      <Grid container direction="row" justify="center" alignItems="center">
+        <Grid item xs={10} direction="row" justify="center" alignItems="center">
+          <h1>My Portfolio | My Blog</h1>
+          <p style={{ fontSize: "16px" }}>Coming Soon!</p>
+          <p>Under Construction 🔨🔨🔨🔨🔨🔨🔨 🏗️🏗️🏗️ </p>
+          <p id="about">About Me: I am a software developer</p>
+        </Grid>
+      </Grid>
+    </MainLayout>
+  );
+};
 
 export default IndexPage;
