@@ -1,10 +1,9 @@
 import React from "react";
 
-import { SEO, MainLayout } from "../components";
+import { MainLayout } from "../components";
 
 const BLog = () => (
-  <MainLayout>
-    <SEO title="Home" />
+  <MainLayout pageTitle={"Blog"} tags={null}>
     <h1>My Blog Posts here!</h1>
   </MainLayout>
 );
