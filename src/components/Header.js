@@ -22,7 +22,7 @@ const useStyles = makeStyles(({ palette }) => {
     },
     siteTitleUI: {
       cursor: "pointer",
-      color: "#f5f5f5",
+      color: palette.text.clr1,
       fontWeight: "500",
       fontSize: "1.3rem",
       letterSpacing: "0.5px",
@@ -31,7 +31,7 @@ const useStyles = makeStyles(({ palette }) => {
     rightBtnStyles: {
       fontSize: "1.1rem",
       fontWeight: "500",
-      color: "#fafafa",
+      color: palette.text.clr1,
     },
   };
 });
@@ -46,14 +46,11 @@ export const Header = ({ siteTitle }) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Grid container direction="row">
-          <Hidden smDown>
-            <Grid item sm={1} />
-          </Hidden>
+        <Grid container direction="row" justify="center">
           <Grid
             item
             xs={12}
-            md={10}
+            sm={9}
             direction="row"
             justify="space-between"
             alignItems="center"
@@ -86,9 +83,6 @@ export const Header = ({ siteTitle }) => {
               />
             </div>
           </Grid>
-          <Hidden smDown>
-            <Grid item sm={1} />
-          </Hidden>
         </Grid>
       </Toolbar>
     </AppBar>

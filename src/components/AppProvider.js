@@ -5,10 +5,10 @@ const defaultContext = {
   darkMode: false,
   setDarkMode: () => {},
 };
-export const AppContext = React.createContext(defaultContext);
+export const AppContext = createContext(defaultContext);
 export const AppProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createMuiTheme({
         palette: {

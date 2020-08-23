@@ -1,27 +1,51 @@
 import React from "react";
-
-import { MainLayout, AppProvider } from "../components";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import { MainLayout } from "../components";
+const useStyles = makeStyles(({ palette }) => ({
+  textColor2: {
+    color: palette.text.clr2,
+  },
+  bgColor: {
+    backgroundColor: palette.bgColor.clr1,
+  },
+}));
 const IndexPage = () => {
+  const classes = useStyles();
   return (
-    <AppProvider>
-      <MainLayout pageTitle={"Ehtisham Ali"} tags={null}>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid
-            item
-            xs={10}
-            direction="row"
-            justify="center"
-            alignItems="center"
+    <MainLayout
+      pageTitle={"Ehtisham Ali"}
+      tags={null}
+      mainClass={classes.bgColor}
+    >
+      <Grid container direction="row" justify="center">
+        <Grid
+          item
+          xs={12}
+          sm={9}
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <div
+            style={{
+              paddingLeft: 16,
+              paddingRight: 16,
+              marginTop: 26,
+            }}
           >
-            <h1>My Portfolio | My Blog</h1>
-            <p style={{ fontSize: "16px" }}>Coming Soon!</p>
-            <span>Under Construction </span>
-            <p id="about">About Me: I am a software developer</p>
-          </Grid>
+            <h1 className={classes.textColor2}>My Portfolio | My Blog</h1>
+            <p style={{ fontSize: "16px" }} className={classes.textColor2}>
+              Coming Soon!
+            </p>
+            <span className={classes.textColor2}>Under Construction </span>
+            <p id="about" className={classes.textColor2}>
+              About Me: I am a software developer
+            </p>
+          </div>
         </Grid>
-      </MainLayout>
-    </AppProvider>
+      </Grid>
+    </MainLayout>
   );
 };
 
