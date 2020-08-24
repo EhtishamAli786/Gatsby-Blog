@@ -10,7 +10,8 @@ const useStyles = makeStyles(({ palette }) => ({
     backgroundColor: palette.bgColor.clr1,
   },
 }));
-const IndexPage = () => {
+
+export default () => {
   const classes = useStyles();
   return (
     <MainLayout
@@ -48,5 +49,3 @@ const IndexPage = () => {
     </MainLayout>
   );
 };
-
-export default IndexPage;

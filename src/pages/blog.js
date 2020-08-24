@@ -1,16 +1,14 @@
 import React from "react";
-import { navigate } from "gatsby";
+import { navigate, graphql } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { MainLayout } from "../components";
-
+const moment = require("moment");
 const useStyles = makeStyles(({ palette }) => ({
   textColor2: {
     color: palette.text.clr2,
@@ -46,34 +44,9 @@ const useStyles = makeStyles(({ palette }) => ({
     textDecoration: "underline",
   },
 }));
-const blogs = [
-  {
-    title: "My New Blog 1 ",
-    date: "July 12, 2020",
-    minRead: "2 min read  ",
-    shortDescription: "Come waste your time with me.",
-  },
-  {
-    title: "My New Blog 2 ",
-    date: "July 12, 2020",
-    minRead: "2 min read  ",
-    shortDescription: "Come waste your time with me.",
-  },
-  {
-    title: "My New Blog 3 ",
-    date: "July 12, 2020",
-    minRead: "2 min read  ",
-    shortDescription: "Come waste your time with me.",
-  },
-  {
-    title: "My New Blog 4 ",
-    date: "July 12, 2020",
-    minRead: "2 min read  ",
-    shortDescription: "Come waste your time with me.",
-  },
-];
-const BLog = () => {
+const BLog = ({ data }) => {
   const classes = useStyles();
+  const { articles } = data.eablog;
   return (
     <MainLayout pageTitle={"Blog"} tags={null} mainClass={classes.bgColor}>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -104,21 +77,24 @@ const BLog = () => {
               <br />I want to share some ideas and want u to share too.
             </p>
           </div>
-          {blogs.map((item, key) => (
-            <Card
-              className={classes.card}
-              key={key}
-              onClick={() => navigate("/singlePost")}
-            >
+          {articles.map((item, key) => (
+            <Card className={classes.card} key={key}>
               <CardContent>
-                <Typography variant="h3" className={classes.title}>
+                <Typography
+                  variant="h3"
+                  className={classes.title}
+                  onClick={() => navigate(`/blog/${item._id}`)}
+                >
                   {item.title}
                 </Typography>
                 <small className={classes.pos}>
-                  {item.date} ☕ {item.minRead}
+                  {moment()
+                    .utc(new Date(item.created_at).getTime())
+                    .format("MMMM Do YYYY")}{" "}
+                  ☕ {item.minRead}
                 </small>
                 <Typography variant="body2" component="p">
-                  {item.shortDescription}
+                  {item.description && item.description.substring(0, 30)}
                 </Typography>
               </CardContent>
             </Card>
@@ -128,5 +104,18 @@ const BLog = () => {
     </MainLayout>
   );
 };
-
+export const query = graphql`
+  query EABLOG {
+    eablog {
+      articles {
+        _id
+        created_at
+        description
+        footerLinks
+        minRead
+        title
+      }
+    }
+  }
+`;
 export default BLog;

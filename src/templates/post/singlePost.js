@@ -2,13 +2,14 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { graphql } from "gatsby";
 
-import { MainLayout } from "../components";
+import { MainLayout } from "../../components";
+
+const moment = require("moment");
 
 const useStyles = makeStyles(({ palette }) => ({
   textColor2: {
@@ -47,8 +48,9 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }));
 
-export default () => {
+export default ({ data }) => {
   const classes = useStyles();
+  const { article } = data.eablog;
   return (
     <MainLayout pageTitle={"Blog"} tags={null} mainClass={classes.bgColor}>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -63,11 +65,16 @@ export default () => {
           <Card className={classes.card}>
             <CardContent>
               <Typography variant="h3" className={classes.title}>
-                The WET Codebase
+                {article.title}
               </Typography>
-              <small className={classes.pos}>July 13, 2020 ☕ 1 min read</small>
+              <small className={classes.pos}>
+                {moment()
+                  .utc(new Date(article.created_at).getTime())
+                  .format("MMMM Do YYYY")}{" "}
+                ☕ {article.minRead}
+              </small>
               <Typography variant="body2" component="p">
-                Come waste your time with me.
+                {article.description && article.description.substring(0, 30)}
               </Typography>
             </CardContent>
           </Card>
@@ -76,3 +83,18 @@ export default () => {
     </MainLayout>
   );
 };
+
+export const query = graphql`
+  query($_id: ID!) {
+    eablog {
+      article(_id: $_id) {
+        _id
+        created_at
+        description
+        footerLinks
+        minRead
+        title
+      }
+    }
+  }
+`;
