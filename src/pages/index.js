@@ -14,11 +14,7 @@ const useStyles = makeStyles(({ palette }) => ({
 export default () => {
   const classes = useStyles();
   return (
-    <MainLayout
-      pageTitle={"Ehtisham Ali"}
-      tags={null}
-      mainClass={classes.bgColor}
-    >
+    <MainLayout title={"Ehtisham Ali"} mainClass={classes.bgColor}>
       <Grid container direction="row" justify="center">
         <Grid
           item

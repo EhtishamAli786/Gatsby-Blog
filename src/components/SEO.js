@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-export const SEO = ({ description, lang, meta, title }) => {
+export const SEO = ({ description, lang, meta, title, keywords, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,9 @@ export const SEO = ({ description, lang, meta, title }) => {
             title
             description
             author
+            keywords
+            image
+            url
           }
         }
       }
@@ -26,6 +29,8 @@ export const SEO = ({ description, lang, meta, title }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const keyWords = keywords || site.siteMetadata.keywords;
+  const imageSEO = image || site.siteMetadata.image;
 
   return (
     <Helmet
@@ -33,7 +38,7 @@ export const SEO = ({ description, lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s - ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -68,7 +73,19 @@ export const SEO = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      />
+      <meta name="image" content={imageSEO} />
+      <meta name="keywords" content={keyWords} />
+      <meta name="robots" content="index,follow" />
+    </Helmet>
   );
 };
 

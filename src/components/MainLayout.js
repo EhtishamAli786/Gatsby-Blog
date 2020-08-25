@@ -1,12 +1,12 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
+import { SEO } from "./SEO";
 import { Header } from "./Header";
-import { Helmet } from "./Helmet";
 
-export const MainLayout = ({ children, pageTitle, tags, mainClass }) => {
+export const MainLayout = ({ children, title, mainClass }) => {
   return (
     <Box className={mainClass} style={{ flexGrow: 1 }}>
-      <Helmet tags={tags} pageTitle={pageTitle} />
+      <SEO title={title} />
       <Header siteTitle="Ehtisham Ali" />
       {children}
     </Box>
