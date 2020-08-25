@@ -52,7 +52,7 @@ export default ({ data }) => {
   const classes = useStyles();
   const { article } = data.eablog;
   return (
-    <MainLayout pageTitle={"Blog"} tags={null} mainClass={classes.bgColor}>
+    <MainLayout title={article.title} mainClass={classes.bgColor}>
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid
           item

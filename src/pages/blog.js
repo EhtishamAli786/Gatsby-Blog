@@ -48,7 +48,7 @@ const BLog = ({ data }) => {
   const classes = useStyles();
   const { articles } = data.eablog;
   return (
-    <MainLayout pageTitle={"Blog"} tags={null} mainClass={classes.bgColor}>
+    <MainLayout title={"Blog"} mainClass={classes.bgColor}>
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid
           item
