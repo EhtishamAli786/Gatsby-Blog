@@ -3,3 +3,4 @@ export * from "./MainLayout";
 export * from "./SEO";
 export * from "./AppProvider";
 export * from "./ThemePalettes";
+export * from "./RootLayout";
