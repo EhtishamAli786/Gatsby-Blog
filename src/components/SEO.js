@@ -74,14 +74,6 @@ export const SEO = ({ description, lang, meta, title, keywords, image }) => {
         },
       ].concat(meta)}
     >
-      <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      />
       <meta name="image" content={imageSEO} />
       <meta name="keywords" content={keyWords} />
       <meta name="robots" content="index,follow" />

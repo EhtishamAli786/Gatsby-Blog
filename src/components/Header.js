@@ -16,6 +16,7 @@ const useStyles = makeStyles(({ palette }) => {
       flexGrow: 1,
       display: "inline-block",
       marginTop: 4,
+      fontFamily: "Montserrat",
     },
     rightMenu: {
       float: "right",
@@ -32,6 +33,7 @@ const useStyles = makeStyles(({ palette }) => {
       fontSize: "1.1rem",
       fontWeight: "500",
       color: palette.text.clr1,
+      fontFamily: "Montserrat",
     },
   };
 });
