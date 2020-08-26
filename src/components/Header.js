@@ -7,9 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
-import Switch from "@material-ui/core/Switch";
+import NightsStayIcon from "@material-ui/icons/NightsStay";
+import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import Toggle from "react-toggle";
 import { useAppContext } from "../hooks";
-
+import "react-toggle/style.css";
+import "../css/header-comp.css";
 const useStyles = makeStyles(({ palette }) => {
   return {
     title: {
@@ -35,12 +38,16 @@ const useStyles = makeStyles(({ palette }) => {
       color: palette.text.clr1,
       fontFamily: "Montserrat",
     },
+    switchStyles: {
+      display: "inline-block",
+      verticalAlign: "middle",
+      marginLeft: 4,
+    },
   };
 });
 
 export const Header = ({ siteTitle }) => {
   const { darkMode, setDarkMode } = useAppContext();
-  console.log("Header -> darkMode", darkMode);
   const classes = useStyles();
   const handleChange = (event) => {
     setDarkMode(!darkMode);
@@ -77,12 +84,36 @@ export const Header = ({ siteTitle }) => {
                   About
                 </Button>
               </Hidden>
-              <Switch
-                checked={darkMode}
-                onChange={handleChange}
-                name="checkedA"
-                inputProps={{ "aria-label": "primary checkbox" }}
-              />
+              <div className={classes.switchStyles}>
+                <Toggle
+                  defaultChecked={darkMode}
+                  className="custom-classname"
+                  icons={{
+                    checked: (
+                      <NightsStayIcon
+                        color="yellow"
+                        style={{
+                          fontSize: 16,
+                          alignSelf: "center",
+                          color: "yellow",
+                        }}
+                      />
+                    ),
+                    unchecked: (
+                      <WbSunnyIcon
+                        color="yellow"
+                        style={{
+                          fontSize: 16,
+                          alignSelf: "center",
+                          color: "yellow",
+                        }}
+                      />
+                    ),
+                  }}
+                  onChange={handleChange}
+                  aria-labelledby="switch"
+                />
+              </div>
             </div>
           </Grid>
         </Grid>
