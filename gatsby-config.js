@@ -39,7 +39,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "eablog",
         // Url to query from
-        url: "http://localhost:3000/graphql",
+        url: "http://localhost:5000/graphql",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
