@@ -1,6 +1,25 @@
 import { colors } from "@material-ui/core";
 
-export const lightModeTheme = {
+export interface theme {
+  myColor: {
+    main: string;
+  };
+  primary: {
+    contrastText: string;
+    dark: string;
+    main: string;
+    light: string;
+  };
+  text: {
+    clr1: string;
+    clr2: string;
+  };
+  link: { clr1: string; clrWhite: string };
+  bgColor: {
+    clr1: string;
+  };
+}
+export const lightModeTheme: theme = {
   myColor: {
     main: colors.blue[100],
   },
@@ -21,7 +40,7 @@ export const lightModeTheme = {
   bgColor: { clr1: "#fff" },
 };
 
-export const darkModeTheme = {
+export const darkModeTheme: theme = {
   myColor: {
     main: colors.grey[800],
   },
