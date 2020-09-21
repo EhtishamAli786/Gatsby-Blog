@@ -15,20 +15,21 @@ export const lightModeTheme = {
     clr2: "#292222",
   },
   link: {
-    clr1: "purple",
+    clr1: "#fff",
+    clrWhite: "#fff",
   },
   bgColor: { clr1: "#fff" },
 };
 
 export const darkModeTheme = {
   myColor: {
-    main: colors.grey[900],
+    main: colors.grey[800],
   },
   primary: {
-    contrastText: colors.grey[900],
-    dark: colors.grey[900],
-    main: colors.grey[900],
-    light: colors.grey[900],
+    contrastText: colors.grey[800],
+    dark: colors.grey[800],
+    main: colors.grey[800],
+    light: colors.grey[800],
   },
   text: {
     clr1: "#fff",
@@ -36,6 +37,7 @@ export const darkModeTheme = {
   },
   link: {
     clr1: "red",
+    clrWhite: "#fff",
   },
   bgColor: { clr1: "#282c35" },
 };

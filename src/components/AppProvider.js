@@ -1,5 +1,5 @@
 import React, { useState, createContext, useMemo } from "react";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "styled-components";
 import { lightModeTheme, darkModeTheme } from "../components";
 const defaultContext = {
   darkMode: false,
@@ -9,13 +9,10 @@ export const AppContext = createContext(defaultContext);
 export const AppProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
   const theme = useMemo(
-    () =>
-      createMuiTheme({
-        palette: {
-          type: darkMode ? "dark" : "light",
-          ...(darkMode ? darkModeTheme : lightModeTheme),
-        },
-      }),
+    () => ({
+      type: darkMode ? "dark" : "light",
+      ...(darkMode ? darkModeTheme : lightModeTheme),
+    }),
     [darkMode]
   );
   return (
