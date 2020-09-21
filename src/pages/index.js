@@ -4,7 +4,7 @@ import { MainLayout } from "../components";
 
 export default () => {
   return (
-    <MainLayout title={"Ehtisham Ali"} mainClass={"red"}>
+    <MainLayout title={"Ehtisham Ali"}>
       <Grid container direction="row" justify="center">
         <Grid
           item

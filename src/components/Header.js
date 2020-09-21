@@ -32,6 +32,7 @@ const HeaderRoot = styled.div`
   background-color: ${({ theme }) => theme.primary.main};
   display: flex;
   align-items: center;
+  box-shadow: 0px 1px 10px #888;
 `;
 const SwitchStyles = styled.div`
   display: inline-block;
@@ -44,9 +45,10 @@ const HeaderBtn = styled(Button)`
   font-family: Montserrat;
   color: ${({ theme }) => theme.link.clrWhite};
 `;
+
 export const Header = ({ siteTitle }) => {
   const { darkMode, setDarkMode } = useAppContext();
-  const handleChange = (event) => {
+  const handleChange = (_) => {
     setDarkMode(!darkMode);
   };
   return (
