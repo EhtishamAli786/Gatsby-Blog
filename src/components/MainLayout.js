@@ -3,9 +3,9 @@ import Box from "@material-ui/core/Box";
 import { SEO } from "./SEO";
 import { Header } from "./Header";
 
-export const MainLayout = ({ children, title, mainClass }) => {
+export const MainLayout = ({ children, title }) => {
   return (
-    <Box className={mainClass} style={{ flexGrow: 1 }}>
+    <Box style={{ flexGrow: 1 }}>
       <SEO title={title} />
       <Header siteTitle="Ehtisham Ali" />
       {children}
