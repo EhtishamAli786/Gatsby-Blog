@@ -20,7 +20,7 @@ exports.createPages = async function ({ actions, graphql }) {
       const _id = article._id;
       actions.createPage({
         path: `blog/${_id}`,
-        component: require.resolve(`./src/templates/post/singlePost.js`),
+        component: require.resolve(`./src/templates/post/singlePost.tsx`),
         context: { _id: _id },
       });
     });

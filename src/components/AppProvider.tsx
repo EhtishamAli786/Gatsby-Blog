@@ -3,11 +3,16 @@ import { ThemeProvider } from "styled-components";
 import { lightModeTheme, darkModeTheme } from "../components";
 const defaultContext = {
   darkMode: false,
-  setDarkMode: () => {},
+  setDarkMode: (a: boolean) => {},
 };
+
+interface state {
+  darkMode: boolean;
+  setDarkMode: (a: boolean) => void;
+}
 export const AppContext = createContext(defaultContext);
-export const AppProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+export const AppProvider: React.FC<state> = ({ children }) => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const theme = useMemo(
     () => ({
       type: darkMode ? "dark" : "light",

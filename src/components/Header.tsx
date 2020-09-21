@@ -76,7 +76,6 @@ export const Header = ({ siteTitle }) => {
                 icons={{
                   checked: (
                     <NightsStayIcon
-                      color="yellow"
                       style={{
                         fontSize: 16,
                         alignSelf: "center",
@@ -86,7 +85,6 @@ export const Header = ({ siteTitle }) => {
                   ),
                   unchecked: (
                     <WbSunnyIcon
-                      color="yellow"
                       style={{
                         fontSize: 16,
                         alignSelf: "center",
