@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-export const RootLayout = ({ children }) => (
+export const RootLayout: React.FC = ({ children }) => (
   <>
     <Helmet>
       <link

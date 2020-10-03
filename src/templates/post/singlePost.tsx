@@ -6,6 +6,7 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import { MainLayout } from "../../components";
 
+//eslint-disable-next-line @typescript-eslint/no-var-requires
 const moment = require("moment");
 
 const CardStyle = styled(Card)`
@@ -32,8 +33,10 @@ const CardTitle = styled.h3`
   cursor: pointer;
   width: fit-content;
 `;
-
-export default ({ data }) => {
+interface Props {
+  data: any;
+}
+const SinglePost: React.FC<Props> = ({ data }: any) => {
   const { article } = data.eablog;
   return (
     <MainLayout title={article.title}>
@@ -80,3 +83,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default SinglePost;

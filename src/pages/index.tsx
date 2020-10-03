@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { MainLayout } from "../components";
 
-export default () => {
+const Index: React.FC = () => {
   return (
     <MainLayout title={"Ehtisham Ali"}>
       <Grid container direction="row" justify="center">
@@ -18,3 +18,5 @@ export default () => {
     </MainLayout>
   );
 };
+
+export default Index;

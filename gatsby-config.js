@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "My Blog",
+    title: "Ehtisham Ali",
     description: "Sharing Code via Personal Blog",
     author: "ehtishamali042",
     keywords: "reactjs react blog code ehtishamali",
@@ -49,6 +49,18 @@ module.exports = {
         isTSX: true, // defaults to false
         jsxPragma: `React`, // defaults to "React"
         allExtensions: true, // defaults to false
+      },
+    },
+    {
+      resolve: "gatsby-plugin-eslint",
+      options: {
+        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ["develop"],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
       },
     },
   ],
