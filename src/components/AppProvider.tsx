@@ -6,12 +6,12 @@ const defaultContext = {
   setDarkMode: (a: boolean) => {},
 };
 
-interface state {
+export interface Context {
   darkMode: boolean;
   setDarkMode: (a: boolean) => void;
 }
 export const AppContext = createContext(defaultContext);
-export const AppProvider: React.FC<state> = ({ children }) => {
+export const AppProvider: React.FC<Context> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const theme = useMemo(
     () => ({

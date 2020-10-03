@@ -45,10 +45,12 @@ const HeaderBtn = styled(Button)`
   font-family: Montserrat;
   color: ${({ theme }) => theme.link.clrWhite};
 `;
-
-export const Header = ({ siteTitle }) => {
+interface Props {
+  siteTitle: string;
+}
+export const Header: React.FC<Props> = ({ siteTitle }) => {
   const { darkMode, setDarkMode } = useAppContext();
-  const handleChange = (_) => {
+  const handleChange = (_: any) => {
     setDarkMode(!darkMode);
   };
   return (

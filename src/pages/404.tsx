@@ -2,7 +2,7 @@ import React from "react";
 import { SEO } from "../components";
 import Grid from "@material-ui/core/Grid";
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FC = () => (
   <Grid container direction="row" justify="center">
     <Grid
       item

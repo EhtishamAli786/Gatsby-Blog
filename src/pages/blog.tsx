@@ -3,11 +3,10 @@ import { navigate, graphql } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { MainLayout } from "../components";
 
+//eslint-disable-next-line @typescript-eslint/no-var-requires
 const moment = require("moment");
 
 const Author = styled.span`
@@ -43,7 +42,12 @@ const CardTitle = styled.h3`
   cursor: pointer;
   width: fit-content;
 `;
-const BLog = ({ data }) => {
+
+interface Props {
+  data: any;
+}
+
+const BLog: React.FC<Props> = ({ data }: any) => {
   const { articles } = data.eablog;
   return (
     <MainLayout title={"Blog"}>
